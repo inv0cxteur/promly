@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promly — les vraies bonnes promos Amazon</title>
+<meta name="description" content="Promly est une extension Chrome qui repère les vraies bonnes promos sur Amazon : réductions vérifiées et triées selon la qualité des avis clients.">
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEoUlEQVRYhcWXWWxUVRjHf+feO1uHtjDVFgqthZayIzUQy5ZiAgJCTEwEHyDGwAOLASUxxu3VGARexLcCiSEhYipxAQkiD1BAliDIUoQWSiClYZnSZaadzsw9nw/T6Xo7UqjwTb7Mne+ce/7/853z/+YcRTcrnDorG6yNolgCjFXgZxBMIKzgOnAAiW+/cfHk/WSbSj6MnjJnmVJqJ5A+GKAprEVgVe3FyopOAqOnzFmmYG93Qv+ziSi1vPZiZYUqnDorW4uqeQYz723NpmUUWVqzEeRZgwNk2FG9wRLRS59d5nubLLUEChXynAhQZCEy5LnBQ7qFDBw+yy8snGAz46U4t4KK3WfcNLQ+2TKq/PEzHotBlh/mFWuWTNaUFcWxDA2S8NaoZu85N9srvQTDxkAJTO+XwLA0ePsVxeJJQkmexlBdoD2cxHcoIuw45WXH6TRaIo+XEZU3zplAcY7ix7WKTJ+kBHWKN7UJ5X/62XXGTyiaOiMGIjj5ujJFpo/O3zX3bA5djtEel0R1T/all4uQ6dF8NK+R4+/Xsa60EUtpRwxEsKQfCXpdybjw9+04i7a1ELNh/kST79e4egB2kdFdLkLAp/n0tQYKhkX5+LcXBpaBfX91sT51I0bMTrxwvNpOCeqUmbkF4X4zYIgITv77FZtLdRoQ3iyxyAsolIK1ZaYzqMNSJONn73gcMUQENbLo5X5V8PpExa53AWxs26apVRNIk5Qb8dZDOFajaGwThvk0swtirK7IoTrodsSwJEUhOnRFuHAHpo0STAWBNJxnKUIwDOsrvJyoNbHzsmjzePFFInAwiK0Fy9Ao1VeaKnfMlJSFaP4E+O691PoPhoSybzzU5+cSLilEzC7pKVvjPnsT97V63KanDwlDSP05fFU4f7sf2XXE1le4qc/PJTR9bA9wAK/XS+7imUTHjyCuY33G71cF3f2znyAYxlH/tx7CiVqDcElhn+x5LRc/r/yAE2u+IDp9DDYa0XZvFfwnPhfuKEo3m3x50KQ50pNIZY1Cjwr0mbnLNNnzzjrmFoxj04E9iGlgjwygte4xttFHPv14qF349qjBq1vcbDviojmSiAdboc3nA6Dqw6/YvHA5hlKUv7WKN4qnsnH/bvZeOg2ATvf2WcaUKnCyR2HY8ofFjpN+Vpe2k+mJ4otEaAV+uXqeTbMXsmDsZCZlj+TzwxWUnz3ateFaIgnYbphPdB5IEtl6xEPA50LHGlAzNZ8c+gHLMNgwcwFfHzvA1sqDnf1V3Masa0Bh0B1TZeePa0ae7kSsDSFaPJxIaREAE17M5eqDuz36eE5V4752D1N6yLDZ9GdmLQeGPw0BBIyHzahIDD1iKA/aQp1NKm7jOXMD9z/1GL0vHkKVJbbsRzHtqQh0DOy+Vo/ren1itw/xYoQiibSLQkkSs1v6Ub+qnJzCbG0N3sWkE0AEOqqecj72N7nEKDLD4Udhf0agWpBlg3o1c6j73XmKkhX362rOmQCtLQ1V/oyhVxAWAZ5BI+FsTSKsCN69uQ/ATEZbWxqrMvxZO7XSERGV3nFdc/4PHbiFQF1WivJ2rJWN9TXnkg3/Au8LBPnFukX2AAAAAElFTkSuQmCC">
+<style>
+  :root{
+    --navy:#131921; --navy2:#232f3e; --orange:#ff9900; --orange2:#ffb13b;
+    --green:#067d62; --ink:#0f1111; --muted:#5b6670; --line:#e6e9ec;
+    --bg:#ffffff; --soft:#f6f8fa;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; font-family:-apple-system,"Segoe UI",system-ui,Arial,sans-serif;
+    color:var(--ink); background:var(--bg); line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+  /* nav */
+  nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
+  .logo img{width:36px;height:36px;border-radius:9px}
+  .logo span{color:var(--orange)}
+  .nav-cta{
+    text-decoration:none;font-weight:700;font-size:14px;
+    background:var(--navy);color:#fff;padding:10px 18px;border-radius:24px;
+  }
+
+  /* hero */
+  .hero{
+    background:linear-gradient(160deg,var(--navy) 0%,var(--navy2) 100%);
+    color:#fff;border-radius:0 0 32px 32px;padding-bottom:72px;
+    position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;right:-120px;top:-120px;width:420px;height:420px;
+    background:radial-gradient(circle,rgba(255,153,0,.22),transparent 70%);
+  }
+  .hero .wrap{position:relative;z-index:1}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-top:40px}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+    padding:6px 14px;border-radius:20px;margin-bottom:22px;
+  }
+  .badge b{color:var(--orange2)}
+  h1{font-size:46px;line-height:1.1;margin:0 0 18px;letter-spacing:-.5px}
+  h1 em{color:var(--orange);font-style:normal}
+  .sub{font-size:18px;color:#cdd6df;max-width:520px;margin:0 0 30px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn{
+    text-decoration:none;font-weight:700;font-size:15px;border-radius:26px;
+    padding:14px 26px;display:inline-flex;align-items:center;gap:10px;
+  }
+  .btn-main{background:var(--orange);color:var(--navy)}
+  .btn-main:hover{background:var(--orange2)}
+  .btn-ghost{color:#fff;border:1px solid rgba(255,255,255,.3)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .free{font-size:13px;color:#9fb0bd}
+
+  /* mock card preview */
+  .shot{
+    background:#fff;border-radius:16px;padding:16px;color:var(--ink);
+    box-shadow:0 30px 60px rgba(0,0,0,.35);transform:rotate(1.5deg);
+  }
+  .shot-head{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;margin-bottom:12px}
+  .shot-head .dot{width:9px;height:9px;border-radius:50%;background:var(--green)}
+  .mini{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .mcard{border:1px solid var(--line);border-radius:10px;padding:10px;position:relative}
+  .mcard .ph{height:62px;background:var(--soft);border-radius:6px;margin-bottom:8px}
+  .mcard .disc{position:absolute;top:6px;left:6px;background:var(--green);color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
+  .mcard .top{position:absolute;top:6px;right:6px;background:var(--green);color:#fff;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px}
+  .mcard .ttl{font-size:11px;color:var(--muted);height:22px;overflow:hidden}
+  .mcard .st{color:#de7921;font-size:11px;margin-top:4px}
+  .mcard .pr{font-weight:800;font-size:14px;margin-top:4px}
+
+  /* sections */
+  section{padding:72px 0}
+  .eyebrow{color:var(--green);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:0 0 10px}
+  h2{font-size:32px;margin:0 0 14px;letter-spacing:-.4px}
+  .lead{color:var(--muted);font-size:17px;max-width:620px}
+
+  .feat{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px}
+  .f{background:var(--soft);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .f .ic{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px}
+  .f h3{margin:0 0 8px;font-size:18px}
+  .f p{margin:0;color:var(--muted);font-size:15px}
+  .ic-g{background:#e4f5f0}.ic-o{background:#fff1da}.ic-n{background:#e9edf1}
+
+  .steps{background:var(--soft)}
+  .steps .wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:40px}
+  .step{position:relative;padding-top:12px}
+  .step .n{font-size:40px;font-weight:800;color:var(--orange);line-height:1}
+  .step h3{margin:12px 0 6px;font-size:18px}
+  .step p{margin:0;color:var(--muted);font-size:15px}
+
+  .why{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .why ul{list-style:none;padding:0;margin:24px 0 0}
+  .why li{display:flex;gap:12px;margin-bottom:16px;font-size:16px}
+  .why li .ck{color:var(--green);font-weight:800;flex:none}
+  .scorebox{background:var(--navy);color:#fff;border-radius:20px;padding:30px}
+  .scorebox .row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .scorebox .row:last-child{border:0}
+  .scorebox .tag{font-weight:700;font-size:12px;padding:3px 10px;border-radius:14px}
+  .t-top{background:var(--green)}.t-meh{background:#8a6d3b}.t-bad{background:#6b7177}
+  .scorebox small{color:#9fb0bd}
+
+  .faq{max-width:760px;margin:0 auto}
+  details{border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px;background:#fff}
+  details summary{font-weight:700;cursor:pointer;font-size:16px;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details[open] summary{color:var(--green)}
+  details p{color:var(--muted);margin:12px 0 0}
+
+  .final{background:linear-gradient(160deg,var(--navy),var(--navy2));color:#fff;text-align:center;border-radius:28px;padding:60px 24px;margin:0 24px}
+  .final h2{font-size:34px}
+  .final p{color:#cdd6df;max-width:520px;margin:0 auto 26px}
+
+  footer{padding:40px 0 60px;color:var(--muted);font-size:13px}
+  footer .disc{background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:24px}
+  footer a{color:var(--green)}
+
+  @media(max-width:820px){
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+    h1{font-size:34px}.feat{grid-template-columns:1fr}
+    .steps .wrap{grid-template-columns:1fr}.why{grid-template-columns:1fr}
+    .shot{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <nav>
+      <div class="logo"><img src="data:image/png;base64,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" alt="Promly"> Prom<span>ly</span></div>
+      <a class="nav-cta" href="#install">Ajouter à Chrome</a>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <div class="badge">⚡ Gratuit · <b>vérifié par les avis</b></div>
+        <h1>Les <em>vraies</em> bonnes promos Amazon, sans le piège.</h1>
+        <p class="sub">Promly scanne Amazon, repère les réductions réelles et ne garde que celles qui tiennent la route : bien notées, avec de vrais avis. Fini les «&nbsp;-70%&nbsp;» sur un produit à 2 étoiles.</p>
+        <div class="cta-row">
+          <a class="btn btn-main" href="#install">＋ Ajouter à Chrome — gratuit</a>
+          <a class="btn btn-ghost" href="#how">Voir comment ça marche</a>
+        </div>
+        <p class="free">Aucune inscription · fonctionne sur Amazon.fr et Amazon.com</p>
+      </div>
+
+      <div class="shot">
+        <div class="shot-head"><span class="dot"></span> Promly · mes promos</div>
+        <div class="mini">
+          <div class="mcard"><div class="ph"></div><span class="disc">-62%</span><span class="top">TOP</span><div class="ttl">Casque audio sans fil…</div><div class="st">★★★★½ · 3 240 avis</div><div class="pr">39,99 €</div></div>
+          <div class="mcard"><div class="ph"></div><span class="disc">-45%</span><span class="top">TOP</span><div class="ttl">Station de charge 65W…</div><div class="st">★★★★½ · 1 870 avis</div><div class="pr">24,90 €</div></div>
+          <div class="mcard"><div class="ph"></div><span class="disc">-38%</span><span class="top" style="background:#2e7d32">Bon</span><div class="ttl">Lampe de bureau LED…</div><div class="st">★★★★ · 612 avis</div><div class="pr">18,50 €</div></div>
+          <div class="mcard"><div class="ph"></div><span class="disc">-30%</span><span class="top" style="background:#2e7d32">Bon</span><div class="ttl">Sac à dos ordinateur…</div><div class="st">★★★★ · 940 avis</div><div class="pr">33,00 €</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Pourquoi Promly</p>
+    <h2>Toutes les extensions montrent des promos. Promly montre les bonnes.</h2>
+    <p class="lead">Une grosse réduction ne veut rien dire si le produit est mauvais ou si le «&nbsp;prix avant&nbsp;» est gonflé. Promly croise la réduction avec la note moyenne et le nombre d'avis pour faire remonter ce qui vaut vraiment le coup.</p>
+
+    <div class="feat">
+      <div class="f">
+        <div class="ic ic-g">✓</div>
+        <h3>Vérifié par les avis</h3>
+        <p>Chaque promo reçoit un score qui combine réduction, note et fiabilité. Les offres douteuses passent en «&nbsp;à vérifier&nbsp;» et sont masquées par défaut.</p>
+      </div>
+      <div class="f">
+        <div class="ic ic-o">%</div>
+        <h3>Réductions réelles</h3>
+        <p>Promly lit le prix affiché et le prix barré pour calculer la vraie remise, et badge directement les produits sur la page Amazon.</p>
+      </div>
+      <div class="f">
+        <div class="ic ic-n">▦</div>
+        <h3>Un tableau de bord unique</h3>
+        <p>Toutes tes trouvailles réunies au même endroit, triables par score, prix, note ou catégorie. Elles s'accumulent au fil de tes recherches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="steps" id="how">
+  <div class="wrap-outer"><div class="wrap">
+    <p class="eyebrow">Comment ça marche</p>
+    <h2>Trois étapes, zéro effort.</h2>
+    <div class="wrap" style="padding:0">
+      <div class="step"><div class="n">1</div><h3>Cherche sur Amazon</h3><p>Fais ta recherche comme d'habitude. Promly repère et badge les promos en temps réel sur la page.</p></div>
+      <div class="step"><div class="n">2</div><h3>Ouvre ton tableau de bord</h3><p>Un clic sur l'icône Promly rassemble les promos de la page dans une vue claire et triée.</p></div>
+      <div class="step"><div class="n">3</div><h3>Garde les meilleures</h3><p>Promly ne t'affiche que les offres bien notées et fiables. Tu achètes l'esprit tranquille.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<section>
+  <div class="wrap why">
+    <div>
+      <p class="eyebrow">Le score Promly</p>
+      <h2>Une note de qualité pour chaque promo.</h2>
+      <p class="lead">Promly ne se laisse pas avoir par une remise spectaculaire.</p>
+      <ul>
+        <li><span class="ck">✓</span> Réduction forte <b>+</b> bonne note <b>+</b> beaucoup d'avis = offre mise en avant.</li>
+        <li><span class="ck">✓</span> Peu d'avis ou note faible = l'offre est rétrogradée, pas recommandée.</li>
+        <li><span class="ck">✓</span> Aucun avis = «&nbsp;à vérifier&nbsp;», jamais présentée comme une bonne affaire.</li>
+      </ul>
+    </div>
+    <div class="scorebox">
+      <div class="row"><div><b>-62%</b><br><small>4,6★ · 3 240 avis</small></div><span class="tag t-top">TOP</span></div>
+      <div class="row"><div><b>-40%</b><br><small>3,2★ · 18 avis</small></div><span class="tag t-meh">Moyen</span></div>
+      <div class="row"><div><b>-85%</b><br><small>sans avis</small></div><span class="tag t-bad">À vérifier</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps">
+  <div class="wrap faq">
+    <p class="eyebrow" style="text-align:center">Questions fréquentes</p>
+    <h2 style="text-align:center">Tout ce qu'il faut savoir</h2>
+    <div style="margin-top:32px">
+      <details open><summary>Promly est-il gratuit ?</summary><p>Oui, l'extension est gratuite et sans inscription. Elle fonctionne dès l'installation sur Amazon.fr et Amazon.com.</p></details>
+      <details><summary>Comment Promly choisit les «&nbsp;bonnes&nbsp;» promos ?</summary><p>Chaque offre reçoit un score sur 100 qui combine le pourcentage de réduction, la note moyenne du produit et le nombre d'avis (gage de fiabilité). Seules les offres au-dessus d'un certain seuil sont mises en avant — un réglage que tu peux ajuster.</p></details>
+      <details><summary>Mes données sont-elles collectées ?</summary><p>Promly lit uniquement le contenu des pages Amazon que tu consultes, pour y repérer les promos. Tes trouvailles sont stockées localement dans ton navigateur. Rien n'est envoyé ailleurs.</p></details>
+      <details><summary>Promly gagne-t-il de l'argent sur mes achats ?</summary><p>Promly participe au programme Partenaires d'Amazon : les liens vers les produits peuvent être affiliés, ce qui génère une petite commission pour Amazon sans aucun surcoût pour toi. C'est ce qui finance le développement de l'extension.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="final">
+    <h2>Arrête de payer les fausses promos.</h2>
+    <p>Installe Promly et ne vois plus que les vraies bonnes affaires Amazon, vérifiées par les avis.</p>
+    <a class="btn btn-main" href="#" aria-label="Ajouter Promly à Chrome">＋ Ajouter à Chrome — gratuit</a>
+    <p style="font-size:13px;color:#9fb0bd;margin-top:16px">Bientôt disponible sur le Chrome Web Store</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="disc">
+      <strong>Information d'affiliation :</strong> Promly participe au Programme Partenaires d'Amazon,
+      un programme d'affiliation qui permet de percevoir une rémunération grâce aux liens vers Amazon.
+      En tant que Partenaire Amazon, nous réalisons un bénéfice sur les achats remplissant les conditions requises.
+      «&nbsp;Amazon&nbsp;» et le logo Amazon sont des marques d'Amazon.com, Inc. ou de ses sociétés affiliées.
+      Promly n'est pas affilié à, ni approuvé par, Amazon au-delà de ce programme.
+    </div>
+    <div class="logo" style="font-size:16px;margin-bottom:8px"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABmJLR0QA/wD/AP+gvaeTAAAEoUlEQVRYhcWXWWxUVRjHf+feO1uHtjDVFgqthZayIzUQy5ZiAgJCTEwEHyDGwAOLASUxxu3VGARexLcCiSEhYipxAQkiD1BAliDIUoQWSiClYZnSZaadzsw9nw/T6Xo7UqjwTb7Mne+ce/7/853z/+YcRTcrnDorG6yNolgCjFXgZxBMIKzgOnAAiW+/cfHk/WSbSj6MnjJnmVJqJ5A+GKAprEVgVe3FyopOAqOnzFmmYG93Qv+ziSi1vPZiZYUqnDorW4uqeQYz723NpmUUWVqzEeRZgwNk2FG9wRLRS59d5nubLLUEChXynAhQZCEy5LnBQ7qFDBw+yy8snGAz46U4t4KK3WfcNLQ+2TKq/PEzHotBlh/mFWuWTNaUFcWxDA2S8NaoZu85N9srvQTDxkAJTO+XwLA0ePsVxeJJQkmexlBdoD2cxHcoIuw45WXH6TRaIo+XEZU3zplAcY7ix7WKTJ+kBHWKN7UJ5X/62XXGTyiaOiMGIjj5ujJFpo/O3zX3bA5djtEel0R1T/all4uQ6dF8NK+R4+/Xsa60EUtpRwxEsKQfCXpdybjw9+04i7a1ELNh/kST79e4egB2kdFdLkLAp/n0tQYKhkX5+LcXBpaBfX91sT51I0bMTrxwvNpOCeqUmbkF4X4zYIgITv77FZtLdRoQ3iyxyAsolIK1ZaYzqMNSJONn73gcMUQENbLo5X5V8PpExa53AWxs26apVRNIk5Qb8dZDOFajaGwThvk0swtirK7IoTrodsSwJEUhOnRFuHAHpo0STAWBNJxnKUIwDOsrvJyoNbHzsmjzePFFInAwiK0Fy9Ao1VeaKnfMlJSFaP4E+O691PoPhoSybzzU5+cSLilEzC7pKVvjPnsT97V63KanDwlDSP05fFU4f7sf2XXE1le4qc/PJTR9bA9wAK/XS+7imUTHjyCuY33G71cF3f2znyAYxlH/tx7CiVqDcElhn+x5LRc/r/yAE2u+IDp9DDYa0XZvFfwnPhfuKEo3m3x50KQ50pNIZY1Cjwr0mbnLNNnzzjrmFoxj04E9iGlgjwygte4xttFHPv14qF349qjBq1vcbDviojmSiAdboc3nA6Dqw6/YvHA5hlKUv7WKN4qnsnH/bvZeOg2ATvf2WcaUKnCyR2HY8ofFjpN+Vpe2k+mJ4otEaAV+uXqeTbMXsmDsZCZlj+TzwxWUnz3ateFaIgnYbphPdB5IEtl6xEPA50LHGlAzNZ8c+gHLMNgwcwFfHzvA1sqDnf1V3Masa0Bh0B1TZeePa0ae7kSsDSFaPJxIaREAE17M5eqDuz36eE5V4752D1N6yLDZ9GdmLQeGPw0BBIyHzahIDD1iKA/aQp1NKm7jOXMD9z/1GL0vHkKVJbbsRzHtqQh0DOy+Vo/ren1itw/xYoQiibSLQkkSs1v6Ub+qnJzCbG0N3sWkE0AEOqqecj72N7nEKDLD4Udhf0agWpBlg3o1c6j73XmKkhX362rOmQCtLQ1V/oyhVxAWAZ5BI+FsTSKsCN69uQ/ATEZbWxqrMvxZO7XSERGV3nFdc/4PHbiFQF1WivJ2rJWN9TXnkg3/Au8LBPnFukX2AAAAAElFTkSuQmCC" style="width:24px;height:24px;border-radius:6px" alt=""> Prom<span style="color:var(--orange)">ly</span></div>
+    © 2026 Promly · <a href="#">Confidentialité</a> · <a href="#">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
