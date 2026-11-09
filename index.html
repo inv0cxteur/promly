@@ -651,6 +651,27 @@
 
   /* liste d'attente (FormSubmit : les inscriptions arrivent par email) */
   var FORM_ENDPOINT="https://formsubmit.co/ajax/tomdvlle@proton.me";
+  // Email envoyé automatiquement à la personne qui s'inscrit.
+  var AUTO={
+    fr:"Merci pour ton inscription à Promly ! 🎉\n\n"+
+       "L'extension arrive très bientôt sur le Chrome Web Store. Tu recevras un email dès qu'elle sera disponible, et tu feras partie des premiers à l'installer.\n\n"+
+       "Promly, c'est l'extension Chrome gratuite qui repère les vraies bonnes promos Amazon :\n"+
+       "- la vraie réduction, calculée sur le prix barré\n"+
+       "- un score qualité qui croise la remise, la note et le nombre d'avis\n"+
+       "- les coupons disponibles repérés pour toi\n\n"+
+       "En attendant le lancement, teste le simulateur de score sur https://inv0cxteur.github.io/promly/ et envoie le lien à un ami qui achète sur Amazon : plus on est nombreux au lancement, mieux c'est.\n\n"+
+       "À très vite,\nL'équipe Promly\n\n"+
+       "Tu reçois ce message parce que tu t'es inscrit sur la liste d'attente de Promly. Pour en sortir, écris-nous via le lien Contact du site.",
+    en:"Thanks for signing up for Promly! 🎉\n\n"+
+       "The extension is coming to the Chrome Web Store very soon. You'll get an email the moment it's available, and you'll be among the first to install it.\n\n"+
+       "Promly is the free Chrome extension that spots the real deals on Amazon:\n"+
+       "- the real discount, computed from the crossed-out price\n"+
+       "- a quality score crossing discount, rating and number of reviews\n"+
+       "- available coupons spotted for you\n\n"+
+       "Until launch, try the score simulator at https://inv0cxteur.github.io/promly/ and send the link to a friend who shops on Amazon.\n\n"+
+       "See you soon,\nThe Promly team\n\n"+
+       "You're receiving this because you joined the Promly waitlist. To be removed, write to us via the Contact link on the site."
+  };
   var f=document.getElementById('wform');
   if(f)f.addEventListener('submit',function(e){
     e.preventDefault();
@@ -662,7 +683,8 @@
     fetch(FORM_ENDPOINT,{method:'POST',
       headers:{'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify({email:f.querySelector('[name=email]').value,
-        _subject:'Promly — nouvelle inscription liste d\'attente',_template:'table',langue:curLang})})
+        _subject:'Promly — nouvelle inscription liste d\'attente',_template:'table',langue:curLang,
+        _autoresponse:AUTO[curLang]})})
      .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
      .then(function(x){
        if(x.ok&&String(x.d.success)==='true'){f.reset();msg.style.color='var(--green2)';msg.textContent=dict['wl.ok'];}
